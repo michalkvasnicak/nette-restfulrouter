@@ -16,4 +16,17 @@ namespace Telepat\Application\Routers;
 class Router extends \Nette\Application\Routers\RouteList
 {
 
+
+    /**
+     * HTTP GET method route
+     *
+     * @param string $mask
+     * @param array  $metadata
+     * @param int    $flags
+     */
+    public function get($mask, $metadata = [], $flags = 0)
+    {
+        $this[] = new Route('get', $mask, $metadata, $flags);
+    }
+
 }
