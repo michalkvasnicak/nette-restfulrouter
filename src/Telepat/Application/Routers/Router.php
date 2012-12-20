@@ -49,4 +49,39 @@ class Router extends \Nette\Application\Routers\RouteList
         return parent::__call($name, $args);
     }
 
+
+    /**
+     * Creates route for any HTTP method
+     *
+     * @param string $mask
+     * @param array  $metadata
+     * @param int    $flags
+     *
+     * @return Router
+     */
+    public function any($mask, $metadata = [], $flags = 0)
+    {
+        $this[] = new Route('get|post|put|delete', $mask, $metadata, $flags);
+
+        return $this;
+    }
+
+
+    /**
+     * Creates route for matching given HTTP methods
+     *
+     * @param array|string  $method
+     * @param string        $mask
+     * @param array         $metadata
+     * @param int           $flags
+     *
+     * @return Router
+     */
+    public function matching($method, $mask, $metadata = [], $flags = 0)
+    {
+        $this[] = new Route($method, $mask, $metadata, $flags);
+
+        return $this;
+    }
+
 }
