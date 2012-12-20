@@ -7,6 +7,20 @@ This is implementation of simple restful router for Nette Framework. It provides
 
 It also provides url constructing!
 
+Installation
+------------
+
+Best way is to install it using Composer.
+
+    //composer.json
+    {
+        "require": {
+            "misiak/nette-restfulrouter": "dev-master"
+        }
+    }
+
+Then run `composer install`
+
 
 Defining routes
 ---------------
