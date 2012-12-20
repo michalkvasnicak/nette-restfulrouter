@@ -2,6 +2,7 @@
     "name": "misiak/nette-restfulrouter",
     "type": "library",
     "description": "Restful router for Nette Framework.",
+    "keywords": ["nette", "routing", "restful", "http", "REST"],
     "homepage": "http://github.com/misiak/nette-restfulrouter",
     "license": "MIT",
     "author": [
