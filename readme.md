@@ -15,7 +15,7 @@ Best way is to install it using Composer.
     //composer.json
     {
         "require": {
-            "misiak/nette-restfulrouter": "master"
+            "misiak/nette-restfulrouter": "dev-master"
         }
     }
 
