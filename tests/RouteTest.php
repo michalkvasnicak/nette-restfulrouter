@@ -3,6 +3,8 @@
 use Nette\Http\Request;
 use Telepat\Application\Routers\Route;
 use Nette\Http\UrlScript;
+use Nette\Http\Url;
+use Nette\Application\Request as AppRequest;
 
 /**
  * @author Michal Kvasničák <michal.kvasnicak@gmail.com>
@@ -45,6 +47,32 @@ class RouteTest extends PHPUnit_Framework_TestCase
 
             $this->assertTrue($route->match($request) !== null);
         }
+    }
+
+
+    public function testConstructUrlMethod()
+    {
+        $route = new Route(
+            'get|post',
+            '<presenter>/test',
+            [
+                'presenter' => 'Homepage',
+                'action' => 'test'
+            ]
+        );
+
+        $refUrl = new Url('http://localhost');
+        $appReq = new AppRequest('Homepage:test', 'GET', ['_method' => 'GET']);
+
+        $this->assertTrue($route->constructUrl($appReq, $refUrl) !== null);
+
+        $appReq = new AppRequest('Homepage:test', 'GET', ['_method' => 'POST']);
+
+        $this->assertTrue($route->constructUrl($appReq, $refUrl) !== null);
+
+        $appReq = new AppRequest('Homepage:test', 'DELETE', ['_method' => 'DELETE']);
+
+        $this->assertTrue($route->constructUrl($appReq, $refUrl) === null);
     }
 
 }

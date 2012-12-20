@@ -83,4 +83,40 @@ class Route extends \Nette\Application\Routers\Route
         return null;
     }
 
+
+    /**
+     * {@inheritDoc}
+     */
+    public function constructUrl(\Nette\Application\Request $appRequest, \Nette\Http\Url $refUrl)
+    {
+        if ( ! $this->matchMethod($appRequest))
+        {
+            return null;
+        }
+
+        return parent::constructUrl($appRequest, $refUrl);
+    }
+
+
+    /**
+     * Tries to match method of app request
+     *
+     * @param \Nette\Application\Request $appRequest
+     *
+     * @return bool
+     */
+    private function matchMethod(\Nette\Application\Request $appRequest)
+    {
+        $methodToMatch = isset($appRequest->parameters['_method']) ? $appRequest->parameters['_method'] : $appRequest->method;
+
+        foreach ($this->methods as $method)
+        {
+            if (strcasecmp($method, $methodToMatch) === 0)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
