@@ -3,7 +3,7 @@ Restful Router for Nette Framework
 
 ---
 
-This is implementation of simple restful router for Nette Framework. It provides simple interface for creating routes for any HTTP method.
+This is implementation of simple restful router for [Nette Framework](http://nette.org). It provides simple interface for creating routes for any HTTP method.
 
 It also provides url constructing!
 
@@ -15,7 +15,7 @@ Best way is to install it using Composer.
     //composer.json
     {
         "require": {
-            "misiak/nette-restfulrouter": "dev-master"
+            "misiak/nette-restfulrouter": "master"
         }
     }
 
