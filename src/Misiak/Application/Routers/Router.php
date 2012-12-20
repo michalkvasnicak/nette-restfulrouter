@@ -5,11 +5,11 @@ namespace Misiak\Application\Routers;
 /**
  * Restful router for Nette
  *
- * @author    Michal Kvasničák <michal.kvasnicak@telep.at>
+ * @author    Michal Kvasničák <michal@kvasnicak.info>
  *
  * @copyright Copyright (c) 2012, Michal Kvasničák
  * @license   MIT
- * @license   http://github.com/misiak/nette-restfulrouter/blob/license.md
+ * @license   http://github.com/misiak/nette-restfulrouter/blob/master/license.md
  *
  * @package   Misiak\Application\Routers
  *
