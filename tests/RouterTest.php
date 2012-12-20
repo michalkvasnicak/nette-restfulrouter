@@ -2,6 +2,7 @@
 
 use Nette\Http\Request;
 use Nette\Http\UrlScript;
+use Misiak\Application\Routers\Router;
 
 /**
  * @author Michal Kvasničák <michal.kvasnicak@gmail.com>
@@ -11,7 +12,7 @@ class RouterTest extends PHPUnit_Framework_TestCase
 
     public function testGetMethod()
     {
-        $router = new \Telepat\Application\Routers\Router();
+        $router = new Router();
 
         $router->get('test', 'Homepage:index');
 
@@ -26,7 +27,7 @@ class RouterTest extends PHPUnit_Framework_TestCase
 
     public function testPostMethod()
     {
-        $router = new \Telepat\Application\Routers\Router();
+        $router = new Router();
 
         $router->post('test', 'Homepage:index');
 
@@ -41,7 +42,7 @@ class RouterTest extends PHPUnit_Framework_TestCase
 
     public function testDeleteMethod()
     {
-        $router = new \Telepat\Application\Routers\Router();
+        $router = new Router();
 
         $router->delete('test', 'Homepage:index');
 
@@ -56,7 +57,7 @@ class RouterTest extends PHPUnit_Framework_TestCase
 
     public function testPutMethod()
     {
-        $router = new \Telepat\Application\Routers\Router();
+        $router = new Router();
 
         $router->put('test', 'Homepage:index');
 
@@ -71,7 +72,7 @@ class RouterTest extends PHPUnit_Framework_TestCase
 
     public function testAnyMethod()
     {
-        $router = new \Telepat\Application\Routers\Router();
+        $router = new Router();
 
         $router->any('test', 'Homepage:index');
 
@@ -101,7 +102,7 @@ class RouterTest extends PHPUnit_Framework_TestCase
 
     public function testMatchMethod()
     {
-        $router = new \Telepat\Application\Routers\Router();
+        $router = new Router();
 
         $router->matching('get|post', 'test', 'Homepage:index');
 

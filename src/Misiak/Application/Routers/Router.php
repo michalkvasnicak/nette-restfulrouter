@@ -1,16 +1,17 @@
 <?php
 
-namespace Telepat\Application\Routers;
+namespace Misiak\Application\Routers;
 
 /**
- * Telepat restful router
+ * Restful router for Nette
  *
  * @author    Michal Kvasničák <michal.kvasnicak@telep.at>
  *
- * @copyright Copyright (c) 2012, Telepat
- * @license   http://telep.at/license/commercial.html
+ * @copyright Copyright (c) 2012, Michal Kvasničák
+ * @license   MIT
+ * @license   http://github.com/misiak/nette-restfulrouter/blob/license.md
  *
- * @package Telepat
+ * @package   Misiak\Application\Routers
  *
  * @method get($mask, $metadata = [], $flags = 0)
  * @method post($mask, $metadata = [], $flags = 0)

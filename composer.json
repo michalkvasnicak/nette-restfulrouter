@@ -1,11 +1,22 @@
 {
+    "name": "misiak/nette-restfulrouter",
+    "type": "library",
+    "description": "Restful router for Nette Framework.",
+    "homepage": "http://github.com/misiak/nette-restfulrouter",
+    "license": "MIT",
+    "author": [
+        {
+            "name": "Michal Kvasničák",
+            "homepage": "http://kvasnicak.info"
+        }
+    ],
     "require": {
         "php": ">=5.4",
-        "nette/nette": "2.1.*"
+        "nette/nette": ">=2.1.*"
     },
     "autoload": {
         "psr-0": {
-            "Telepat": "src/"
+            "Misiak": "src/"
         }
     }
 }

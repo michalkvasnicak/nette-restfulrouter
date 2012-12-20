@@ -1,7 +1,7 @@
 <?php
 
 use Nette\Http\Request;
-use Telepat\Application\Routers\Route;
+use Misiak\Application\Routers\Route;
 use Nette\Http\UrlScript;
 use Nette\Http\Url;
 use Nette\Application\Request as AppRequest;
