@@ -12,21 +12,41 @@ namespace Telepat\Application\Routers;
  *
  * @package Telepat
  *
+ * @method get($mask, $metadata = [], $flags = 0)
+ * @method post($mask, $metadata = [], $flags = 0)
+ * @method put($mask, $metadata = [], $flags = 0)
+ * @method delete($mask, $metadata = [], $flags = 0)
+ *
  */
 class Router extends \Nette\Application\Routers\RouteList
 {
 
 
     /**
-     * HTTP GET method route
+     * @param $name
+     * @param $args
      *
-     * @param string $mask
-     * @param array  $metadata
-     * @param int    $flags
+     * @return mixed|Router
+     * @throws \InvalidArgumentException
      */
-    public function get($mask, $metadata = [], $flags = 0)
+    public function __call($name, $args)
     {
-        $this[] = new Route('get', $mask, $metadata, $flags);
+        if (in_array($name, ['get', 'post', 'put', 'delete']))
+        {
+            if (count($args) < 1)
+            {
+                throw new \InvalidArgumentException('Mask has to be set.');
+            }
+
+            $metadata = isset($args[1]) ? $args[1] : [];
+            $flags = isset($args[2]) ? $args[2] : 0;
+
+            $this[] = new Route($name, $args[0], $metadata, $flags);
+
+            return $this;
+        }
+
+        return parent::__call($name, $args);
     }
 
 }
