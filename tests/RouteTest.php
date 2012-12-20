@@ -54,23 +54,21 @@ class RouteTest extends PHPUnit_Framework_TestCase
     {
         $route = new Route(
             'get|post',
-            '<presenter>/test',
-            [
-                'presenter' => 'Homepage',
-                'action' => 'test'
-            ]
+            'homepage/test',
+            'Homepage:test'
         );
 
         $refUrl = new Url('http://localhost');
-        $appReq = new AppRequest('Homepage:test', 'GET', ['_method' => 'GET']);
+        $appReq = new AppRequest('Homepage', 'GET', ['action' => 'test', '_method' => 'GET']);
+
+        $this->assertTrue($route->constructUrl($appReq, $refUrl) !== null);
+        $this->assertEquals('http://localhost/homepage/test', $route->constructUrl($appReq, $refUrl));
+
+        $appReq = new AppRequest('Homepage', 'GET', ['action' => 'test', '_method' => 'POST']);
 
         $this->assertTrue($route->constructUrl($appReq, $refUrl) !== null);
 
-        $appReq = new AppRequest('Homepage:test', 'GET', ['_method' => 'POST']);
-
-        $this->assertTrue($route->constructUrl($appReq, $refUrl) !== null);
-
-        $appReq = new AppRequest('Homepage:test', 'DELETE', ['_method' => 'DELETE']);
+        $appReq = new AppRequest('Homepage', 'DELETE', ['action' => 'test', '_method' => 'DELETE']);
 
         $this->assertTrue($route->constructUrl($appReq, $refUrl) === null);
     }

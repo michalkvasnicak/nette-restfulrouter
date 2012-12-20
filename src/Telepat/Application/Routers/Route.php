@@ -94,6 +94,14 @@ class Route extends \Nette\Application\Routers\Route
             return null;
         }
 
+        $parameters = $appRequest->parameters;
+        // is matched, remove _method parameter !
+        if (isset($parameters))
+        {
+            unset($parameters['_method']);
+            $appRequest->setParameters($parameters);
+        }
+
         return parent::constructUrl($appRequest, $refUrl);
     }
 
